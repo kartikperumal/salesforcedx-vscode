@@ -58,6 +58,17 @@ class LwcTestPathStrategy implements SourcePathStrategy {
   }
 }
 
+//Just creating it in tests dir for now
+class LwcPageObjectPathStrategy implements SourcePathStrategy {
+  public getPathToSource(
+    dirPath: string,
+    fileName: string,
+    fileExt: string
+  ): string {
+    return join(dirPath, '__tests__', `${fileName}.test${fileExt}`);
+  }
+}
+
 export interface SourcePathStrategy {
   getPathToSource(dirPath: string, fileName: string, fileExt: string): string;
 }

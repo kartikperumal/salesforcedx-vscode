@@ -35,6 +35,7 @@ import {
   forceLightningInterfaceCreate,
   forceLightningLwcCreate,
   forceLightningLwcTestCreate,
+  forceLightningLwcPageObjectCreate,
   forceOrgCreate,
   forceOrgDelete,
   forceOrgDisplay,
@@ -235,6 +236,12 @@ function registerCommands(
     'sfdx.force.lightning.lwc.test.create',
     forceLightningLwcTestCreate
   );
+
+  const forceLightningLwcPageObjectCreateCmd = vscode.commands.registerCommand(
+    'sfdx.force.lightning.lwc.pageobject.create',
+    forceLightningLwcPageObjectCreate
+  );
+
 
   const forceDebuggerStopCmd = vscode.commands.registerCommand(
     'sfdx.force.debugger.stop',
@@ -631,8 +638,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
   // Refresh SObject definitions if there aren't any faux classes
   const sobjectRefreshStartup: boolean = vscode.workspace
-  .getConfiguration(SFDX_CORE_CONFIGURATION_NAME)
-  .get<boolean>(ENABLE_SOBJECT_REFRESH_ON_STARTUP, false);
+    .getConfiguration(SFDX_CORE_CONFIGURATION_NAME)
+    .get<boolean>(ENABLE_SOBJECT_REFRESH_ON_STARTUP, false);
 
   if (sobjectRefreshStartup) {
     initSObjectDefinitions(
