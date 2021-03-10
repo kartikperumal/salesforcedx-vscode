@@ -19,8 +19,8 @@ import {
   SfdxCommandlet,
   SfdxWorkspaceChecker,
   SourcePathStrategy
-} from '../../util';
-import { MetadataTypeGatherer } from '../../util';
+} from '../util';
+import { MetadataTypeGatherer } from '../util';
 import { SelectLwcComponentDir } from '../util/parameterGatherers';
 import { OverwriteComponentPrompt } from '../util/postconditionCheckers';
 import { BaseTemplateCommand } from './baseTemplateCommand';
